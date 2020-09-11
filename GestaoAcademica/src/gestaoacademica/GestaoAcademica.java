@@ -1,6 +1,7 @@
 
 package gestaoacademica;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -22,18 +23,15 @@ public class GestaoAcademica {
         int alunosAprovados = 0, alunosReprovados = 0, alunosAF = 0;
         
         float notasAlunos[] = new float[alunos];
-        float notalFinal = 0;
+        float notaTotal = 0;
        
         Scanner entrada = new Scanner (System.in);
         
         for (int i = 0; i < alunos; i++) {
-            //Entrada para identificar o aluno
-            System.out.println("Informe o nome do aluno: ");
-            String nome = entrada.nextLine();
-            //Entrada para identificar a disciplina
-            System.out.println("Informe a disciplina: ");
-            String disciplina = entrada.nextLine();
-
+            
+            System.out.println("----- CÁLCULO DA MÉDIA SEMESTRAL DE QUÍMICA -----");
+            System.out.println(" ");
+          
             //Entrada das notas do 1º Bimestre
             System.out.println("Informe a nota da prova do aluno no 1º Bimestre: ");
             float nProva1b = entrada.nextFloat();
@@ -61,7 +59,10 @@ public class GestaoAcademica {
             //Cálculo da média Semestral
             float mediaSemestral =((nota1Bimestre + nota2Bimestre) / 2);
             
-            //Adição da média semestral do aluno para identifcar a menor e maior nota da classe
+            //Adição do valor da média semestral do aluno em uma variável para o calculo da média da turma
+            notaTotal += mediaSemestral;
+            
+            //Adição da média semestral do aluno para identifcar a menor e maior nota da turma
             notasAlunos[i] = (float)mediaSemestral;
             
             //Condicional para identificar alunos Aprovados, Repovados e AF
@@ -73,5 +74,24 @@ public class GestaoAcademica {
                 alunosReprovados++;
             }
         } 
+        
+        DecimalFormat fmt = new DecimalFormat("0.00");
+        Arrays.sort(notasAlunos);
+        
+        //Cálculo da média da classe
+        float mediaTurma = notaTotal/alunos;
+        
+        // Andre 9.0, 9.0, 9.5, 9.5, 9.0, 9.0
+        // Marcos 3.0, 2.0, 1.5, 2.5, 2.0, 2.0
+        // Jose 6.5, 4.0, 4.5, 6.5, 6.0, 5.0
+        
+        System.out.println("-------------------------------------------------");
+        System.out.println("A média geral da turma é: " + fmt.format(mediaTurma));
+        System.out.println("A menor nota da turma é: " + fmt.format(notasAlunos[0]));
+        System.out.println("A maior nota da turma é: " + fmt.format(notasAlunos[notasAlunos.length - 1]));
+        System.out.println(" ");
+        System.out.println("Alunos aprovados: " + alunosAprovados);
+        System.out.println("Alunos reprovados: " + alunosReprovados);
+        System.out.println("Alunos em Avliação Final: " + alunosAF);   
     }
 }
