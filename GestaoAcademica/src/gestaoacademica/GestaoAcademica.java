@@ -6,10 +6,9 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 /**
- * Instituição: Centro Universitário de Maringá
- * Diciplina: Programação II
+ * Instituição: HSM University
+ * Diciplina: Lógica de Programação e Orientação a Objetos
  * Aluno: André Alves de Oliveira
- * RA: 19131743-5
  * @author aavls
  */
 public class GestaoAcademica {
