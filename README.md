@@ -36,6 +36,8 @@ Observação: Existem diversas formas de determinar a maior e a menor média. Um
 
 # 📝 Sobre o projeto
 
+- Curso Lógica de Programação Orientada a Objetos
+
 Este é um projeto acadêmico. Seu principal objetivo é facilitar a avaliação dos professores.
 
 ---
